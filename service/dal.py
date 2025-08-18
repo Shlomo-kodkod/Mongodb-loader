@@ -44,4 +44,6 @@ class DataLoader:
         except Exception as e:
             logger.error(e)
             return None
-    
+        finally:
+            db.client.close() if db else None
+            logger.info("Database connection closed.")    
