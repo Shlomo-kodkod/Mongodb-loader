@@ -17,8 +17,8 @@ class DataLoader:
             client = pymongo.MongoClient(
                 host=os.getenv("MONGO_HOST", "mongodb-community-server"),
                 port=int(os.getenv("MONGO_PORT", 27017)),
-                username=os.getenv("MONGO_USER", "user"),
-                password=os.getenv("MONGO_PASSWORD", "pwd"))
+                username=os.getenv("MONGO_USER", "admin"),
+                password=os.getenv("MONGO_PASSWORD", "pass"))
             db = client[os.getenv("MONGO_DATABASE", "mongodb")]
             logger.info("Successfully connected to MongoDB")
             return db
