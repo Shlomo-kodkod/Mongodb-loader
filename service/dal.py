@@ -45,5 +45,6 @@ class DataLoader:
             logger.error(e)
             return None
         finally:
-            db.client.close() if db else None
-            logger.info("Database connection closed.")    
+            if db is not None:
+                db.client.close() if db else None
+                logger.info("Database connection closed.")    
