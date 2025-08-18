@@ -7,7 +7,7 @@ from service.dal import DataLoader
 app = FastAPI()
 logger = logging.getLogger(__name__)
 
-@app.get("/names")
+@app.get("/students")
 def get_names():
     """
     Endpoint to retrieve student from the database.

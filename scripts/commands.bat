@@ -18,7 +18,7 @@ oc new-app https://github.com/Shlomo-kodkod/Mongodb-loader#service
 
 oc get deployment
 
-oc expose deployment mongodb-loader --name=mongo-end-point --port=80
+oc expose deployment mongodb-loader --name=mongo-end-point --port=8082
 
 oc get service
 
