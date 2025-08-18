@@ -38,7 +38,7 @@ class DataLoader:
         db = DataLoader.connect_to_db()
         try:
             collection = db[os.getenv("MONGO_COLLECTION", "students")]
-            data = list(collection.find())
+            data = list(collection.find({}, {"_id": 0}))  
             logger.info(f"Data loaded successfully from {collection.name} collection.")
             return data
         except Exception as e:
