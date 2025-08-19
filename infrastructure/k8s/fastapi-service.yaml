@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: mongo-end-point
+  labels:
+    app: mongodb-loader
+spec:
+  ports:
+    - protocol: TCP
+      port: 8082
+      targetPort: 8082
+  selector:
+    deployment: mongodb-loader
