@@ -1,0 +1,14 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: mongopvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: pvc-3073e65b-bba0-4187-a080-224fa100180f
+  storageClassName: gp3
+  volumeMode: Filesystem
+
