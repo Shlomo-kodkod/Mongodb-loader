@@ -30,6 +30,6 @@ spec:
               protocol: TCP
           volumeMounts:
             - name: mongopvc
-              mountPath: /data
+              mountPath: /data/db
           image: 'mongodb/mongodb-community-server@sha256:285bd038f1019b0a0244f9115bcf9bc2910e376ac8f662ac561852ed466d3a1f'
   
