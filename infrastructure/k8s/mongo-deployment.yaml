@@ -1,0 +1,35 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: mongodb-community-server
+  labels:
+    app: mongodb-community-server
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      deployment: mongodb-community-server
+  template:
+    metadata:
+      labels:
+        deployment: mongodb-community-server
+    spec:
+      volumes:
+        - name: mongopvc
+          persistentVolumeClaim:
+            claimName: mongopvc
+      containers:
+          name: mongodb-community-server
+          env:
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              value: pass
+            - name: MONGO_INITDB_ROOT_USERNAME
+              value: admin
+          ports:
+            - containerPort: 27017
+              protocol: TCP
+          volumeMounts:
+            - name: mongopvc
+              mountPath: /data
+          image: 'mongodb/mongodb-community-server@sha256:285bd038f1019b0a0244f9115bcf9bc2910e376ac8f662ac561852ed466d3a1f'
+  

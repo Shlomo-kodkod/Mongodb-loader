@@ -1,0 +1,19 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: mongodb-loader
+  labels:
+    app: mongodb-loader
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      deployment: mongodb-loader
+  template:
+    metadata:
+      labels:
+        deployment: mongodb-loader
+    spec:
+      containers:
+        - name: mongodb-loader
+          image: 'image-registry.openshift-image-registry.svc:5000/shlomot575-dev/mongodb-loader@sha256:b2efc912552f1222d23332ee5b70c987e3e881b997c89d41e6bbc6d53b5797e5'
