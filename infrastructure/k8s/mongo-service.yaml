@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: mongodb-community-server
+  labels:
+    app: mongodb-community-server
+spec:
+  ports:
+    - name: 27017-tcp
+      protocol: TCP
+      port: 27017
+      targetPort: 27017
+  selector:
+    deployment: mongodb-community-server
+
